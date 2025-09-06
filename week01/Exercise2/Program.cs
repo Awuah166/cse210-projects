@@ -41,9 +41,9 @@ class Program
 
         // Creating a sign variable to determine if the get a "+" or "-"
         string sign = "";
-        
+
         int scoreGrade = score % 10;
-    
+
         if (scoreGrade >= 7)
         {
             sign = "+";
