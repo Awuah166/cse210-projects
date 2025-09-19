@@ -19,11 +19,11 @@ class Program
         decimal initialBalanceDecimal = decimal.Parse(initialBalance);
         Console.WriteLine("How much would you like to withdraw? ");
         decimal withdrawAmount = decimal.Parse(Console.ReadLine());
-    
-            Account account = new Account(accountId, accountName, accountType, initialBalanceDecimal);
-            account.Withdraw(withdrawAmount);
-            account.GetAccountInfo();
-            Console.WriteLine($"Current Balance: {account.GetBalance():C}");
+
+        Account account = new Account(accountId, accountName, accountType, initialBalanceDecimal);
+        account.Withdraw(withdrawAmount);
+        account.GetAccountInfo();
+        Console.WriteLine($"Current Balance: {account.GetBalance():C}");
 
         // Creating an Account object
 
