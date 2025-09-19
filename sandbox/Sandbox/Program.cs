@@ -7,40 +7,28 @@ class Program
     {
         Console.WriteLine("Hello World! This is the Sandbox Project.");
 
-        // Asking the user for their favourite color
-        Console.Write("What is your favourite color? ");
-        string color = Console.ReadLine();
-        Console.WriteLine(color);
+        // Prompting the user for account details
+        Console.Write("Enter Account ID: ");
+        string accountId = Console.ReadLine();
+        Console.Write("Enter Account Name: ");
+        string accountName = Console.ReadLine();
+        Console.Write("Enter Account Type (e.g., Savings, Checking): ");
+        string accountType = Console.ReadLine();
+        Console.Write("Enter Initial Balance: ");
+        string initialBalance = Console.ReadLine();
+        decimal initialBalanceDecimal = decimal.Parse(initialBalance);
+        Console.WriteLine("How much would you like to withdraw? ");
+        decimal withdrawAmount = decimal.Parse(Console.ReadLine());
+    
+            Account account = new Account(accountId, accountName, accountType, initialBalanceDecimal);
+            account.Withdraw(withdrawAmount);
+            account.GetAccountInfo();
+            Console.WriteLine($"Current Balance: {account.GetBalance():C}");
 
-    }
+        // Creating an Account object
 
-    // A code template for the category of things known as Person. The
-    // responsibility of a Person is to hold and display personal information.
-    public class Person
-    {
-        // The C# convention is to start member variables with an underscore _
-        public string _givenName = "Dennis";
-        public string _familyName = "Awuah";
 
-        // A special method, called a constructor that is invoked using the  
-        // new keyword followed by the class name and parentheses.
-        public Person()
-        {
-        }
 
-        // A method that displays the person's full name as used in eastern 
-        // countries or <family name, given name>.
-        public void ShowEasternName()
-        {
-            Console.WriteLine($"{_familyName}, {_givenName}");
-        }
-
-        // A method that displays the person's full name as used in western 
-        // countries or <given name family name>.
-        public void ShowWesternName()
-        {
-            Console.WriteLine($"{_givenName} {_familyName}");
-        }
     }
 
     
