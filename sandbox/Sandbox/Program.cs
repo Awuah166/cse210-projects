@@ -1,35 +1,50 @@
 using System;
 using System.Security.Cryptography.X509Certificates;
 
-class Program
+class Name
 {
-    static void Main(string[] args)
+    public class Person
     {
-        Console.WriteLine("Hello World! This is the Sandbox Project.");
+        private string _name;
+        private int _age;
 
-        // Prompting the user for account details
-        Console.Write("Enter Account ID: ");
-        string accountId = Console.ReadLine();
-        Console.Write("Enter Account Name: ");
-        string accountName = Console.ReadLine();
-        Console.Write("Enter Account Type (e.g., Savings, Checking): ");
-        string accountType = Console.ReadLine();
-        Console.Write("Enter Initial Balance: ");
-        string initialBalance = Console.ReadLine();
-        decimal initialBalanceDecimal = decimal.Parse(initialBalance);
-        Console.WriteLine("How much would you like to withdraw? ");
-        decimal withdrawAmount = decimal.Parse(Console.ReadLine());
-
-        Account account = new Account(accountId, accountName, accountType, initialBalanceDecimal);
-        account.Withdraw(withdrawAmount);
-        account.GetAccountInfo();
-        Console.WriteLine($"Current Balance: {account.GetBalance():C}");
-
-        // Creating an Account object
-
-
-
+        public Person(string name, int age)
+        {
+            _name = name;
+            _age = age;
+        }
+        public string GetName()
+        {
+            return _name;
+        }
+        public int GetAge()
+        {
+            return _age;
+        }
     }
 
+    public class Student : Person
+    {
+        private string _studentId;
+
+        public Student(string name, string studentId, int age) : base(name, age)  
+        {
+            _studentId = studentId;
+        }
+        public string GetStudentId()
+        {
+            return _studentId;
+        }
+    }
     
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Student student = new Student("Alice", "S12345", 20);
+            Console.WriteLine("Name: " + student.GetName());
+            Console.WriteLine("Student ID: " + student.GetStudentId());
+            Console.WriteLine("Age: " + student.GetAge());
+        }
+    }
 }
